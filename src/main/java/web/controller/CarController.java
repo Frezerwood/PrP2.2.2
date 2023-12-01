@@ -26,7 +26,10 @@ public class CarController {
 
 
         model.addAttribute("mesage", "Hello, count is - " + count);
-        model.addAttribute("cars", carsSet.subList(0, count));
+        // model.addAttribute("cars", carsSet.subList(0, count));
+
+        model.addAttribute("cars", carsSet.stream().limit(count).toList());
+
         return "cars";
     }
 
